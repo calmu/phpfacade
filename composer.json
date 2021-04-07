@@ -1,0 +1,22 @@
+{
+	"name": "calmu/phpfacade",
+	"description": "简单的单例和门面（simple single-mode and facade）",
+	"keywords": ["trait", "single-mode", "facade"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Calvin Huang",
+			"email": "huang_calvin@163.com",
+			"homepage": "https://github.com/calmu"
+		}
+	],
+	"require": {
+		"php": ">=5.6"
+	},
+	"autoload": {
+		"psr-4": {
+			"Calfacade\\": "src/"
+		},
+		"files": []
+	}
+}
