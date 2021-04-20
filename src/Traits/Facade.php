@@ -18,8 +18,12 @@ trait Facade
 				$name = static::$instance->getName();
 			} else {
 				#2,插件包方式，就在同等的命名空间下，并且以门面的类名为目录下
-				$name = get_class(static::$instance);
-				$name .= '\\' . basename($name);
+				/*$name = get_class(static::$instance);
+				$name .= '\\' . basename($name);*///basename(str_replace('\\', '/', $name));
+				// 用反射类进行定位真实类
+				$class = new \ReflectionClass(static::$instance);
+				$class_name = $class->getShortName();
+				$name = $class->getNamespaceName() . "\\{$class_name}\\{$class_name}";
 			}
 			class_exists($name) || $name = "\\{$name}";
 			if ( ! class_exists($name)) {
